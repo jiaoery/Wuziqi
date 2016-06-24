@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.jixiang.wuziqi.customview.WuziqiPanel;
+
 public class MainActivity extends AppCompatActivity {
 
+    WuziqiPanel wuziqiPanel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        wuziqiPanel= (WuziqiPanel) findViewById(R.id.wuqizi);
     }
 
     @Override
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            wuziqiPanel.start();
             return true;
         }
 
