@@ -186,14 +186,22 @@ public class WuziqiPanel extends View {
     }
 
 
+    //重新开始游戏
      public void start(){
           mBlackArray.clear();
          mWhiteArray.clear();
          isWhtie=false;
          mIsWhteWinner=false;
+         mIsGameOver=false;
          invalidate();
      }
 
+
+    /**
+     * 检测一方是否已经赢了
+     * @param points
+     * @return
+     */
     private boolean checkFiveInLine(List<Point> points) {
         for(Point p:points){
             int x=p.x;
