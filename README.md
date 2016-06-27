@@ -15,6 +15,11 @@
  邮箱：jix@03199.com
  
 ##演示效果
+###Apk的下载地址
+
+[debug Apk的下载地址](https://github.com/jixiang52002/Wuziqi/blob/master/app/%E4%BA%94%E5%AD%90%E6%A3%8Bwzq_debug_1.0.apk)
+
+[release apk的下载地址](https://github.com/jixiang52002/Wuziqi/blob/master/app/%E4%BA%94%E5%AD%90%E6%A3%8Bwzq_release_1.0.apk)
  
 ##1.开发功能解析
  
