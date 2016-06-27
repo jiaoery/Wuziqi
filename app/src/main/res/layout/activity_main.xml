@@ -6,6 +6,9 @@
     tools:context=".MainActivity"
     android:background="@drawable/bg">
 
+
+
+   <!--新添加的自定义控件需要增加相应的id，否则会出错-->
    <com.jixiang.wuziqi.customview.WuziqiPanel
        android:id="@+id/wuqizi"
        android:layout_width="match_parent"

@@ -88,12 +88,19 @@ public class WuziqiPanel extends View {
         int pieceWidth= (int) (mLineHeight*ratioPiceOfLineHeight);
     }
 
+
+    /**
+     * 触摸事件
+     * @param event
+     * @return
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if(mIsGameOver){
             return false;
         }
         int action=event.getAction();
+        //监听UP动作，在于防止事件冲突（具有滑动效果的布局）
         if(action==MotionEvent.ACTION_UP){
             int x= (int) event.getX();
 
@@ -122,6 +129,12 @@ public class WuziqiPanel extends View {
         return  new Point((int)(x/mLineHeight),(int)(y/mLineHeight));
     }
 
+
+    /**
+     * 测量控件的高度
+     * @param widthMeasureSpec
+     * @param heightMeasureSpec
+     */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int widthSize=MeasureSpec.getSize(widthMeasureSpec);
@@ -132,7 +145,7 @@ public class WuziqiPanel extends View {
 
         int width=Math.min(widthSize,heightSize);
         /**
-         * 宽度不符合
+         * 宽度类型或宽度为零时（加weight属性时）
          */
         if (widthMode==MeasureSpec.UNSPECIFIED){
             width=heightSize;
@@ -142,7 +155,13 @@ public class WuziqiPanel extends View {
         setMeasuredDimension(width,width);
     }
 
-
+    /**
+     * 当宽度和高度改变时调用此方法
+     * @param w
+     * @param h
+     * @param oldw
+     * @param oldh
+     */
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -150,6 +169,7 @@ public class WuziqiPanel extends View {
         mLineHeight=mPanelWidth*1.0f/MAX_LINE;
 
         int pieceWidth= (int) (mLineHeight*ratioPiceOfLineHeight);
+        //由于无法直接将棋子按照给定的图标直接绘制出来，所以需要根据给定宽度和高度的比例来绘制图标
         mWhitePiece=Bitmap.createScaledBitmap(mWhitePiece,pieceWidth,pieceWidth,false);
         mBlackPiece=Bitmap.createScaledBitmap(mBlackPiece,pieceWidth,pieceWidth,false);
 
